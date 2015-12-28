@@ -1,0 +1,15 @@
+<ion-view view-title="Equations">
+  <ion-content>
+    <h1>Equations</h1>
+    <div>
+      <p>{{message}}</p>
+      <p>To do: Write a custom directive to run: MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        Each time a view with some math elements is loaded, so that you don't have to refresh to get the formatted math</p>
+      <ion-list>
+        <ion-item ng-repeat="tab in tabs" href="#/app/equations/{{tab.equationView}}">
+          {{tab.title}}
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-view>

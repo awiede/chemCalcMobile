@@ -1,0 +1,66 @@
+<ion-view view-title="Antoine Equation">
+  <ion-content>
+    <div>
+      <p>
+        The Antoine Equation will have brief description which will go here. Eventually! But the formula for the equation is:
+        $$\log_{10} (P) = A - \frac{B}{T+C}$$
+      </p>
+      <p>
+        {{antoineMessage}}
+      </p>
+    </div>
+    <div>
+      <hr>
+      <!--<div class="button-bar">
+        <a class="button button-calm" ng-repeat="hydrocarbon in hydrocarbons" ng-click="selectHydrocarbon(hydrocarbon)" ng-class="{'active': hydrocarbon==currentHydrocarbon}">
+          {{hydrocarbon.name}}
+        </a>
+      </div>-->
+      <form ng-submit="submitAntoine()">
+        <div class="list">
+
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Current Hydrocarbon:
+            </div>
+            <select ng-model="currentHydrocarbon" ng-options="hydrocarbon.name for hydrocarbon in hydrocarbons" ng-change="selectHydrocarbon(currentHydrocarbon)"></select>
+          </label>
+
+        </div>
+
+
+        <ul class="list-group">
+          <li class="list-group-item"><label>A</label> {{currentHydrocarbon.A}}</li>
+          <li class="list-group-item"><label>B</label> {{currentHydrocarbon.B}}</li>
+          <li class="list-group-item"><label>C</label> {{currentHydrocarbon.C}}</li>
+        </ul>
+
+        <div>Enter a value between {{currentTemperatureUnit.currentMinTemp}} and {{currentTemperatureUnit.currentMaxTemp}} degrees {{currentTemperatureUnit.longName}}</div>
+        <!--379. - 573.	-->
+        <div class="list">
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Temperature Unit:
+            </div>
+            <!--K = C + 273.15 -->
+            <select ng-model="currentTemperatureUnit" ng-options="temperatureUnit.longName for temperatureUnit in temperatureFields" ng-change="selectTemperatureUnit(temperatureUnit)">
+              <!--<option ng-repeat="temperatureUnit in temperatureFields" ng-click="selectTemperatureUnit(temperatureUnit)">{{temperatureUnit.longName}}</option>-->
+            </select>
+          </label>
+        </div>
+        <label class="item item-input">
+          <span class="input-label">Temperature</span>
+          <input type="number" class="form-control" name="temperatureInput" ng-model="antoineForm.inputT" placeholder="{{currentTemperatureUnit.abbreviation}}" min="{{currentTemperatureUnit.currentMinTemp}}" max="{{currentTemperatureUnit.currentMaxTemp}}" required/>
+        </label>
+
+        <div class="button-bar">
+          <a class="button button-positive" ng-click="submitAntoine(); cordova.plugins.Keyboard.close();" ng-disabled="inputForm.$invalid">Calculate</a>
+          <a class="button button-stable" ng-click="resetInputs()">Clear</a>
+        </div>
+      </form>
+        <div class="bar bar-footer bar-balanced" ng-show="showResult">
+          <div class="title">P = {{outputP}}</div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>
