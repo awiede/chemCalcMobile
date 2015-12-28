@@ -11,11 +11,6 @@
     </div>
     <div>
       <hr>
-      <!--<div class="button-bar">
-        <a class="button button-calm" ng-repeat="hydrocarbon in hydrocarbons" ng-click="selectHydrocarbon(hydrocarbon)" ng-class="{'active': hydrocarbon==currentHydrocarbon}">
-          {{hydrocarbon.name}}
-        </a>
-      </div>-->
       <form ng-submit="submitAntoine()">
         <div class="list">
 
@@ -43,9 +38,7 @@
               Temperature Unit:
             </div>
             <!--K = C + 273.15 -->
-            <select ng-model="currentTemperatureUnit" ng-options="temperatureUnit.longName for temperatureUnit in temperatureFields" ng-change="selectTemperatureUnit(temperatureUnit)">
-              <!--<option ng-repeat="temperatureUnit in temperatureFields" ng-click="selectTemperatureUnit(temperatureUnit)">{{temperatureUnit.longName}}</option>-->
-            </select>
+            <select ng-model="currentTemperatureUnit" ng-options="temperatureUnit.longName for temperatureUnit in temperatureFields" ng-change="selectTemperatureUnit(temperatureUnit)"></select>
           </label>
         </div>
         <label class="item item-input">
