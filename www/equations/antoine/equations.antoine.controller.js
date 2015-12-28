@@ -73,6 +73,7 @@ angular.module('chemCalc').controller('AntoineCtrl', ['$scope', '$cordovaKeyboar
       T: $scope.antoineForm.inputT
     };
 
+    cordova.plugins.Keyboard.disableScroll(true);
     $cordovaKeyboard.close();
 
     $scope.outputP = antoineExpression.eval(evalScope);
